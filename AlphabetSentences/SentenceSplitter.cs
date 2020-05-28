@@ -11,7 +11,10 @@ namespace AlphabetSentences
             var matchedSentences = splittingRegex.Matches(sentenceToSplit);
 
             var splitSentences = new List<string>();
-            foreach (Match match in matchedSentences) splitSentences.Add(match.Value);
+            foreach (Match match in matchedSentences)
+                if (!match.Value.Contains("\n"))
+                    splitSentences.Add(match.Value);
+
             return splitSentences;
         }
     }
