@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace AlphabetSentences
@@ -18,7 +17,6 @@ namespace AlphabetSentences
             var alphabatizedSentences = alphabetizer.Alphabetize(splitSentances);
 
             File.WriteAllLines("../../AlphabetizedSentences.txt", alphabatizedSentences);
-            Console.ReadLine();
         }
     }
 }
