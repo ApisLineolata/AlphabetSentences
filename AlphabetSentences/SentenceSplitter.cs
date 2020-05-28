@@ -7,7 +7,7 @@ namespace AlphabetSentences
     {
         public List<string> Split(string sentenceToSplit)
         {
-            Regex splittingRegex = new Regex("([^\"\\s].*?[.!?\\n])");
+            Regex splittingRegex = new Regex("(\"[^.!?\\n]+?[.!?\\n]\\)*\")|([^\"\\s].*?[.!?\\n]\\)*)");
             var matchedSentences = splittingRegex.Matches(sentenceToSplit);
 
             var splitSentences = new List<string>();

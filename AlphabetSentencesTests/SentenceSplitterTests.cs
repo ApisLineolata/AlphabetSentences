@@ -8,6 +8,23 @@ namespace AlphabetSentencesTests
     public class SentenceSplitterTests
     {
         [Test]
+        public void FullyEnclosedQuoteSentencesAreCaptured()
+        {
+            SentenceSplitter splitter = new SentenceSplitter();
+            string testString =
+                "And the Universal AC answered. \"THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.\"";
+            var splitSentances = splitter.Split(testString);
+
+            var expectedSentences = new List<string>
+            {
+                "And the Universal AC answered.",
+                "\"THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.\""
+            };
+
+            Assert.That(splitSentances, Is.EquivalentTo(expectedSentences));
+        }
+
+        [Test]
         public void QuotationMarksAreRemovedTest()
         {
             SentenceSplitter splitter = new SentenceSplitter();
