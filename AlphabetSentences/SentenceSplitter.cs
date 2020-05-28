@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace AlphabetSentences
 {
@@ -7,7 +7,12 @@ namespace AlphabetSentences
     {
         public List<string> Split(string sentenceToSplit)
         {
-            throw new NotImplementedException();
+            var splitSentences = sentenceToSplit.Split('.');
+            var splitList = splitSentences.ToList();
+            splitList.Remove(splitList.Last());
+            splitList = splitList.ConvertAll(sentence => sentence.Trim() + '.');
+
+            return splitList;
         }
     }
 }
