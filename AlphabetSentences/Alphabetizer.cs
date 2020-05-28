@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace AlphabetSentences
 {
@@ -7,7 +7,9 @@ namespace AlphabetSentences
     {
         public List<string> Alphabetize(List<string> stringsToAlphabetize)
         {
-            throw new NotImplementedException();
+            var sortedStrings = stringsToAlphabetize.ToList();
+            sortedStrings.Sort();
+            return sortedStrings;
         }
     }
 }
