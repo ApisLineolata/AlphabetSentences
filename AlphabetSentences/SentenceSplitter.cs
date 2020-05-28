@@ -10,9 +10,22 @@ namespace AlphabetSentences
             var splitSentences = sentenceToSplit.Split('.');
             var splitList = splitSentences.ToList();
             splitList.Remove(splitList.Last());
-            splitList = splitList.ConvertAll(sentence => sentence.Trim() + '.');
+            List<string> trimmedSentences = new List<string>();
+            foreach (var splitItem in splitList)
+            {
+                string trimmedItem = splitItem;
 
-            return splitList;
+                // Needs to trim twice to catch any whitespaces before the quotation marks
+                // and then any remaining after the quotation mark is removed
+                trimmedItem = trimmedItem.Trim();
+                trimmedItem = trimmedItem.Trim('"');
+                trimmedItem = trimmedItem.Trim();
+
+                trimmedItem = trimmedItem + ".";
+                trimmedSentences.Add(trimmedItem);
+            }
+
+            return trimmedSentences;
         }
     }
 }
