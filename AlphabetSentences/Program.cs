@@ -8,15 +8,16 @@ namespace AlphabetSentences
     {
         public static void Main(string[] args)
         {
-            var storyLines = File.ReadAllLines("../../ShortStory.txt");
+            var storyLines = File.ReadAllText("../../ShortStory.txt");
 
             SentenceSplitter splitter = new SentenceSplitter();
             List<string> splitSentances = new List<string>();
-            foreach (var storyLine in storyLines) splitSentances.AddRange(splitter.Split(storyLine));
+            splitSentances.AddRange(splitter.Split(storyLines));
 
             Alphabetizer alphabetizer = new Alphabetizer();
             var alphabatizedSentences = alphabetizer.Alphabetize(splitSentances);
 
+            File.WriteAllLines("../../AlphabetizedSentences.txt", alphabatizedSentences);
             Console.ReadLine();
         }
     }
