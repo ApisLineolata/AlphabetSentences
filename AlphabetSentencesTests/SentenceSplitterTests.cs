@@ -13,7 +13,7 @@ namespace AlphabetSentencesTests
             SentenceSplitter splitter = new SentenceSplitter();
             string testString =
                 "And the Universal AC answered. \"THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.\"";
-            var splitSentances = splitter.Split(testString);
+            var splitSentences = splitter.Split(testString);
 
             var expectedSentences = new List<string>
             {
@@ -21,7 +21,7 @@ namespace AlphabetSentencesTests
                 "\"THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.\""
             };
 
-            Assert.That(splitSentances, Is.EquivalentTo(expectedSentences));
+            Assert.That(splitSentences, Is.EquivalentTo(expectedSentences));
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace AlphabetSentencesTests
             SentenceSplitter splitter = new SentenceSplitter();
             string testString =
                 "VJ-23X was not really serious, but MQ-17J pulled out his AC-contact from his pocket and placed it on the table before him?\n\"I've half a mind to,\" he said! \"It's something the human race will have to face someday.";
-            var splitSentances = splitter.Split(testString);
+            var splitSentences = splitter.Split(testString);
 
             var expectedSentences = new List<string>
             {
@@ -49,7 +49,7 @@ namespace AlphabetSentencesTests
                 "I've half a mind to,\" he said!", "It's something the human race will have to face someday."
             };
 
-            Assert.That(splitSentances, Is.EquivalentTo(expectedSentences));
+            Assert.That(splitSentences, Is.EquivalentTo(expectedSentences));
         }
 
         [Test]

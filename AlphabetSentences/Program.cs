@@ -10,13 +10,13 @@ namespace AlphabetSentences
             var storyLines = File.ReadAllText("../../ShortStory.txt");
 
             SentenceSplitter splitter = new SentenceSplitter();
-            List<string> splitSentances = new List<string>();
-            splitSentances.AddRange(splitter.Split(storyLines));
+            List<string> splitSentences = new List<string>();
+            splitSentences.AddRange(splitter.Split(storyLines));
 
             Alphabetizer alphabetizer = new Alphabetizer();
-            var alphabatizedSentences = alphabetizer.Alphabetize(splitSentances);
+            var alphabetizedSentences = alphabetizer.Alphabetize(splitSentences);
 
-            File.WriteAllLines("../../AlphabetizedSentences.txt", alphabatizedSentences);
+            File.WriteAllLines("../../AlphabetizedSentences.txt", alphabetizedSentences);
         }
     }
 }
